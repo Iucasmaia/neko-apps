@@ -10,6 +10,11 @@ RUN set -eux; apt-get update; \
     apt-get install -y --no-install-recommends gnupg openbox /tmp/vscode.deb; \
     apt-get install -f; \
     #
+    # install nodejs and yarn
+    curl -sL https://deb.nodesource.com/setup_18.x | bash -; \
+    apt-get install -y nodejs; \
+    npm install -g yarn; \
+    #
     # clean up
     apt-get clean -y; \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/* /tmp/*;
